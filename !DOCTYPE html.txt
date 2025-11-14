@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ari — Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #151823;
+      --text: #e6e8ef;
+      --muted: #9aa0ac;
+      --accent: #5cc8ff;
+      --accent2: #b18cff;
+    }
+    * { box-sizing: border-box }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text); background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px }
+    header {
+      position: sticky; top: 0; backdrop-filter: saturate(180%) blur(8px);
+      background: rgba(15,17,21,0.7); border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .nav a.brand { font-weight: 700; letter-spacing: 0.2px }
+    .nav ul { display: flex; gap: 18px; list-style: none; padding: 0; margin: 0 }
+    .btn {
+      display: inline-block; padding: 10px 16px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #0b0d12; font-weight: 600;
+    }
+    .hero {
+      padding: 80px 0; text-align: center;
+    }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); margin: 0 0 10px }
+    .hero p { color: var(--muted); max-width: 700px; margin: 0 auto 24px }
+    .grid {
+      display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr);
+    }
+    .card {
+      grid-column: span 4; background: var(--card); border-radius: 14px; padding: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .card h3 { margin: 6px 0 8px; font-size: 18px }
+    .card p { color: var(--muted); font-size: 14px }
+    @media (max-width: 900px) { .card { grid-column: span 6 } }
+    @media (max-width: 600px) { .card { grid-column: span 12 } }
+    .section { padding: 54px 0 }
+    footer { padding: 40px 0; color: var(--muted); text-align: center }
+    .tag { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">Ari</a>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="tag">Portfolio</div>
+      <h1>Methodical analysis. Clean design. Real impact.</h1>
+      <p>
+        I build models, synthesize complex data, and turn it into sharp decisions and visuals.
+        Here’s a curated slice of recent work.
+      </p>
+      <a class="btn" href="#work">View projects</a>
+    </section>
+
+    <section id="work" class="section">
+      <h2>Selected projects</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="tag">Finance</div>
+          <h3>Company valuation dashboard</h3>
+          <p>DCF + comps with scenario toggles and clean visuals for quick decisions.</p>
+          <a href="#" aria-label="Open project">Explore →</a>
+        </article>
+        <article class="card">
+          <div class="tag">Sports analytics</div>
+          <h3>NBA props tracker</h3>
+          <p>Live averages vs. lines with alerts and tables for value spots.</p>
+          <a href="#" aria-label="Open project">Explore →</a>
+        </article>
+        <article class="card">
+          <div class="tag">Research</div>
+          <h3>Black Friday strategy</h3>
+          <p>Retailer pricing patterns, timing windows, and risk/reward comparisons.</p>
+          <a href="#" aria-label="Open project">Explore →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>
+        I’m Ari—detail‑oriented, analytical, and creative. I synthesize complex topics
+        into clear, actionable visuals and decisions.
+      </p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p class="tag">Let’s collaborate</p>
+      <form action="#" method="post" onsubmit="alert('Thanks! I’ll be in touch.'); return false;">
+        <div style="display:grid; gap:12px; max-width:520px">
+          <input type="text" name="name" placeholder="Name" required
+                 style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#0b0d12;color:#e6e8ef">
+          <input type="email" name="email" placeholder="Email" required
+                 style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#0b0d12;color:#e6e8ef">
+          <textarea name="message" placeholder="Tell me about your project" rows="4" required
+                    style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#0b0d12;color:#e6e8ef"></textarea>
+          <button class="btn" type="submit" style="width:max-content">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Ari — Clearwater, FL
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
